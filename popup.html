@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <link rel="stylesheet" type="text/css" href="popup.css" />
+  </head>
+  <body>
+    <div id="unauthenticated">
+      <a class="init-user-actions" href="http://angkiki-bookmarker.herokuapp.com/users/new" target="_blank">Register</a>
+      <a class="init-user-actions" href="#" id="login">Login</a>
+
+      <form id="login-form">
+        <input class="login-form-input" placeholder="username" id="username" type="text" name="username" />
+        <input class="login-form-input" placeholder="password" id="password" type="password" name="password" />
+        <input type="submit" id="login-submit" />
+      </form>
+
+      <p id="authentication-failed">
+
+      </p>
+    </div>
+
+    <div id="authenticated">
+      <p id="authenticated-username">
+
+      </p>
+
+      <a id="retrieve-url" href="http://angkiki-bookmarker.herokuapp.com/users/login" target="_blank">Retrieve URLs</a>
+
+
+      <button type="button" id="authenticated-save-url">Save URLs</button>
+
+      <p id="authenticated-saved-success">
+
+      </p>
+
+      <button type="button" id="logout">Logout</button>
+    </div>
+
+    <script src="popup.js"></script>
+  </body>
+</html>

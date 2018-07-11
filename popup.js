@@ -17,6 +17,8 @@ chrome.storage.sync.get('username', (result) => {
 //          save urls
 // ~ ~ ~   ~ ~ ~   ~ ~ ~   ~ ~ ~
 document.getElementById('authenticated-save-url').addEventListener('click', function() {
+  document.getElementById('overlay').style.display = "block";
+
   chrome.storage.sync.get('username', (result) => {
     var username = result.username;
 
@@ -28,8 +30,10 @@ document.getElementById('authenticated-save-url').addEventListener('click', func
           let result = JSON.parse(request.response);
 
           if (result.success) {
+              document.getElementById('overlay').style.display = "none";
               document.getElementById('authenticated-saved-success').textContent = 'Saved URLs in ' + currentUrl;
           } else {
+              document.getElementById('overlay').style.display = "none";
               document.getElementById('authenticated-saved-success').textContent = result.error;
           }
         }
@@ -68,6 +72,7 @@ document.getElementById('login').addEventListener('click', function() {
 //      log user in
 // ~ ~ ~   ~ ~ ~   ~ ~ ~   ~ ~ ~
 document.getElementById('login-submit').addEventListener('click', function(event) {
+  document.getElementById('overlay').style.display = "block";
   event.preventDefault();
 
   request.onreadystatechange = function(){
@@ -75,11 +80,13 @@ document.getElementById('login-submit').addEventListener('click', function(event
         let result = JSON.parse(request.response);
 
         if (result.authenticated) {
+            document.getElementById('overlay').style.display = "none";
             chrome.storage.sync.set({username: result.username});
             document.getElementById('unauthenticated').style.display = "none";
             document.getElementById('authenticated-username').textContent = "Hello " + result.username;
             document.getElementById('authenticated').style.display = "block";
         } else {
+            document.getElementById('overlay').style.display = "none";
             document.getElementById('authentication-failed').textContent = result.error;
         }
     }

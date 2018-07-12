@@ -13,11 +13,18 @@ body {
   margin: 5px auto;
   text-decoration: none;
   border: 1px solid black;
-  background-color: #7399c6;
   border-radius: 10px;
   color: white;
   width: 100px;
   text-align: center;
+}
+
+#reg-btn {
+  background-color: #7399c6;
+}
+
+#login {
+  background-color: green;
 }
 
 .login-form-input {
@@ -28,11 +35,11 @@ body {
 }
 
 #login-submit {
-  background-color: green;
+  background-color: grey;
   color: white;
   display: block;
   margin: 5px auto;
-  width: 150px;
+  width: 100px;
 }
 
 #login-form {
@@ -73,7 +80,7 @@ body {
 }
 
 #authenticated-save-url {
-  background-color: #7399c6;
+  background-color: green;
   display: block;
   width: 150px;
   margin: 5px auto;
